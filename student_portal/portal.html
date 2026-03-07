@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniLibrary - Student Portal</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="portal.css">
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <span class="material-symbols-outlined">local_library</span>
+            </div>
+            <div class="logo-text">
+                <h1>UniLibrary</h1>
+                <span>STUDENT PORTAL</span>
+            </div>
+        </div>
+
+        <div class="search-area">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <input type="text" placeholder="Search by title, author, ISBN, or keyword...">
+            <span class="shortcut-badge">⌘ K</span>
+        </div>
+
+        <div class="user-area">
+            <button class="icon-btn">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="notification-dot"></span>
+            </button>
+            <div class="user-profile" title="Click to logout">
+                <div class="user-info">
+                    <span class="name">Alex Morgan</span>
+                    <span class="role">Computer Science</span>
+                </div>
+                <div class="avatar">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Alex Morgan">
+                </div>
+            </div>
+            <button class="logout-btn" title="Logout">
+                <span class="material-symbols-outlined">logout</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1>Welcome back, Alex</h1>
+                <div class="alert-pill">
+                    You have 2 items due soon. Check your library updates.
+                </div>
+            </div>
+            <div class="semester-badge">Fall Semester 2023</div>
+        </section>
+
+        <!-- Stats Grid -->
+        <section class="stats-grid">
+            <!-- Card 1 -->
+            <div class="stat-card">
+                <div class="card-top">
+                    <div class="icon-box blue">
+                        <span class="material-symbols-outlined">library_books</span>
+                    </div>
+                    <span class="status-badge green">Active</span>
+                </div>
+                <div class="card-content">
+                    <span class="label">TOTAL BOOKS BORROWED</span>
+                    <span class="value">3</span>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="stat-card">
+                <div class="card-top">
+                    <div class="icon-box yellow">
+                        <span class="material-symbols-outlined">event_upcoming</span>
+                    </div>
+                    <span class="status-badge yellow">Attention Needed</span>
+                </div>
+                <div class="card-content">
+                    <span class="label">UPCOMING DUE DATES</span>
+                    <div class="value-row">
+                        <span class="value">1</span>
+                        <span class="sub-text red">Due Tomorrow</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Banner -->
+        <section class="quick-actions">
+            <div class="action-text">
+                <h2>Quick Actions</h2>
+                <p>Manage your library activities efficiently</p>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn white">
+                    <span class="material-symbols-outlined">search</span>
+                    Search Books
+                </button>
+                <button class="action-btn white">
+                    <span class="material-symbols-outlined">menu_book</span>
+                    My Borrowings
+                </button>
+                <button class="action-btn transparent">
+                    <span class="material-symbols-outlined">history</span>
+                    Borrowing History
+                </button>
+            </div>
+            <!-- Background doodle/graphic can be added via CSS -->
+        </section>
+
+        <!-- Current Borrowings List -->
+        <section class="borrowings-list">
+            <div class="section-header">
+                <h3><span class="material-symbols-outlined">bookmark</span> Current Borrowings</h3>
+                <a href="#" class="view-all">View All History <span
+                        class="material-symbols-outlined">arrow_forward</span></a>
+            </div>
+
+            <!-- Book Item -->
+            <div class="book-card">
+                <div class="book-cover blue-cover"></div>
+                <div class="book-details">
+                    <div class="info-main">
+                        <h4>Introduction to Algorithms</h4>
+                        <span class="author">Thomas H. Cormen</span>
+
+                        <div class="meta-tags">
+                            <span class="tag warning"><span class="material-symbols-outlined">warning</span> Due
+                                Tomorrow</span>
+                            <span class="tag gray"><span class="material-symbols-outlined">fingerprint</span> ID:
+                                #839201</span>
+                        </div>
+                    </div>
+
+                    <div class="info-side">
+                        <span class="isbn">ISBN: 978-0262033848</span>
+                        <div class="book-actions">
+                            <button class="btn-primary">
+                                <span class="material-symbols-outlined">autorenew</span> Renew Book
+                            </button>
+                            <button class="btn-secondary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Item 2 (Preview) -->
+            <div class="book-card">
+                <div class="book-cover green-cover"></div>
+                <div class="book-details">
+                    <div class="info-main">
+                        <h4>Design of Everyday Things</h4>
+                        <span class="author">Donald Norman</span>
+                        <!-- <span class="tag green">Returned</span> -->
+                    </div>
+                    <div class="info-side">
+                        <span class="isbn">ISBN: 978-0465050659</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="portal.js"></script>
+</body>
+
+</html>
