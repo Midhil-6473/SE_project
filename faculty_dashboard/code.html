@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Dashboard - Library LMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b8cee",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                        "text-main": "#111418",
+                        "text-secondary": "#617589",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white font-display overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden">
+<main class="flex-1 flex flex-col h-full overflow-y-auto relative isolate">
+<div class="fixed inset-0 z-[-1]">
+<img alt="Library Background" class="w-full h-full object-cover blur-[8px] opacity-40 dark:opacity-20 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlK3eGI0Tzi-lYa780yrwmROXpFkRscVexbz3gdY_QO9GXFUo3SM3MEJVUzCii3-483MuD4TtigvMHpP2TsPd8wFqde3wEHYmkPvEj3cBgGEVU6AO1CsEQ4K4ajLiZX_tm2GVopsLYf45Unc6pyTv7w3uHIAyE-KN5pNA1XB-rooQVZ_nRaWX5SQDkIYqq8HC2jDTMDWh7GX2p5Be28iPrtQkG5yi9-scySjlcH4kOf1WhxidsGgmzi7EfDoW-e1xSA1oLGitqiSpW"/>
+<div class="absolute inset-0 bg-gradient-to-br from-background-light/90 via-background-light/70 to-background-light/80 dark:from-background-dark/95 dark:via-background-dark/80 dark:to-background-dark/95 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-white/40 dark:bg-black/40"></div>
+</div>
+<header class="sticky top-0 z-10 bg-background-light/60 dark:bg-background-dark/60 backdrop-blur-md px-6 lg:px-10 py-4 flex items-center justify-between gap-6 border-b border-white/20 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined">local_library</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-text-main dark:text-white text-lg font-bold leading-tight tracking-tight">UniLibrary</h1>
+<p class="text-text-secondary dark:text-gray-400 text-[10px] font-bold uppercase tracking-wider">Student Portal</p>
+</div>
+</div>
+<div class="flex-1 max-w-4xl mx-auto hidden md:block">
+<label class="flex w-full items-center gap-3 rounded-xl bg-surface-light/70 dark:bg-surface-dark/70 border border-white/50 dark:border-gray-600 px-5 h-12 shadow-sm focus-within:ring-2 focus-within:ring-primary/20 transition-all backdrop-blur-md group hover:bg-surface-light/90 dark:hover:bg-surface-dark/90">
+<span class="material-symbols-outlined text-text-secondary dark:text-gray-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="flex-1 bg-transparent border-none text-text-main dark:text-white placeholder:text-text-secondary dark:placeholder:text-gray-500 focus:ring-0 text-sm font-medium" placeholder="Search by title, author, ISBN, or keyword..." type="text"/>
+<div class="hidden lg:flex items-center gap-1 text-xs font-bold text-text-secondary dark:text-gray-500 border border-gray-200 dark:border-gray-700 rounded px-1.5 py-0.5 bg-gray-50 dark:bg-gray-800">
+<span>⌘</span>
+<span>K</span>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2.5 rounded-full text-text-secondary dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-[#2a3b4c]/50 transition-colors backdrop-blur-sm bg-surface-light/30">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-3 w-2 h-2 rounded-full bg-red-500 border-2 border-background-light dark:border-background-dark"></span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-gray-200 dark:border-gray-700">
+<div class="text-right hidden lg:block">
+<p class="text-sm font-bold text-text-main dark:text-white">Alex Morgan</p>
+<p class="text-xs text-text-secondary dark:text-gray-400">Computer Science</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold overflow-hidden border-2 border-white dark:border-gray-600 shadow-sm cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtiOJIxyOu8wfo0sBxOR7DVPhWWhexGP2arLV9WYrfR-iPndrxRhtPtL9bO1vOpiSIH8vrixnzc6btkmh95pK24L2zo9P7FjFYdu9pVilpL-h0LhKo3bx6YR8iFbf2tA3QM-yz85MY9TK4VO8ZMtBPBedY7EuHC16n0_i5ZAdhYb6JGYZo8NBMJdpZ_9zBA0NFh_Pr3CeaYiWoGhvwGiIfjJNBkYm9sWhtLLsH6sm4OOmXbipEse6jLJRLpfT_Mpdllsw7BtekfONt"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-col gap-10 p-6 lg:p-12 max-w-[1600px] mx-auto w-full relative z-0">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-2">
+<h2 class="text-4xl font-black tracking-tight text-text-main dark:text-white drop-shadow-sm">Welcome back, Alex</h2>
+<p class="text-text-secondary dark:text-gray-300 font-medium text-lg max-w-2xl bg-surface-light/40 dark:bg-surface-dark/40 backdrop-blur-sm p-2 rounded-lg inline-block">You have 2 items due soon. Check your library updates.</p>
+</div>
+<div class="flex gap-3">
+<span class="text-sm font-medium text-text-secondary dark:text-gray-400 px-3 py-1 bg-surface-light/50 dark:bg-surface-dark/50 rounded-full border border-white/20">Fall Semester 2023</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<div class="bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between gap-6 group hover:border-primary/30 hover:scale-[1.01] transition-all duration-300 cursor-default">
+<div class="flex justify-between items-start">
+<div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl text-primary">
+<span class="material-symbols-outlined text-4xl">library_books</span>
+</div>
+<span class="flex items-center text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400 px-3 py-1.5 rounded-full border border-green-100 dark:border-green-800">
+                    Active
+                </span>
+</div>
+<div>
+<p class="text-text-secondary dark:text-gray-400 text-sm font-bold uppercase tracking-wide">Total Books Borrowed</p>
+<p class="text-5xl font-black text-text-main dark:text-white mt-2 tracking-tight">3</p>
+</div>
+</div>
+<div class="bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between gap-6 group hover:border-yellow-500/30 hover:scale-[1.01] transition-all duration-300 cursor-default">
+<div class="flex justify-between items-start">
+<div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl text-yellow-600 dark:text-yellow-500">
+<span class="material-symbols-outlined text-4xl">event_upcoming</span>
+</div>
+<span class="flex items-center text-xs font-bold text-yellow-700 bg-yellow-50 dark:bg-yellow-900/20 dark:text-yellow-500 px-3 py-1.5 rounded-full border border-yellow-100 dark:border-yellow-800">
+                    Attention Needed
+                </span>
+</div>
+<div>
+<p class="text-text-secondary dark:text-gray-400 text-sm font-bold uppercase tracking-wide">Upcoming Due Dates</p>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-5xl font-black text-text-main dark:text-white tracking-tight">1</p>
+<span class="text-lg font-medium text-red-500 bg-red-50 dark:bg-red-900/20 px-2 rounded-lg">Due Tomorrow</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light/90 dark:bg-surface-dark/90 backdrop-blur-sm p-6 lg:p-8 rounded-2xl border border-white/50 dark:border-gray-700 shadow-sm flex flex-col justify-between gap-6 group hover:border-green-500/30 hover:scale-[1.01] transition-all duration-300 cursor-default">
+<div class="flex justify-between items-start">
+<div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-2xl text-green-600 dark:text-green-500">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<span class="flex items-center text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400 px-3 py-1.5 rounded-full border border-green-100 dark:border-green-800">
+                    Good Standing
+                </span>
+</div>
+<div>
+<p class="text-text-secondary dark:text-gray-400 text-sm font-bold uppercase tracking-wide">Pending Fines</p>
+<p class="text-5xl font-black text-text-main dark:text-white mt-2 tracking-tight">$0.00</p>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-r from-[#2b8cee] to-teal-500 rounded-2xl p-6 lg:p-8 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden group border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="absolute right-0 top-1/2 -translate-y-1/2 p-8 opacity-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[12rem]">rocket_launch</span>
+</div>
+<div class="relative z-10 flex flex-col gap-1 text-center md:text-left">
+<h3 class="text-2xl font-bold drop-shadow-sm">Quick Actions</h3>
+<p class="text-blue-100 font-medium">Manage your library activities efficiently</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 relative z-10 w-full md:w-auto">
+<button class="py-3 px-6 bg-white text-primary hover:bg-gray-50 font-bold rounded-xl shadow-md flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 active:scale-[0.98]">
+<span class="material-symbols-outlined">search</span>
+                Search Books
+            </button>
+<button class="py-3 px-6 bg-white/20 text-white border border-white/30 hover:bg-white/30 font-bold rounded-xl flex items-center justify-center gap-2 transition-all backdrop-blur-sm shadow-sm transform hover:-translate-y-0.5 active:scale-[0.98]">
+<span class="material-symbols-outlined">menu_book</span>
+                My Borrowings
+            </button>
+<button class="py-3 px-6 bg-white/20 text-white border border-white/30 hover:bg-white/30 font-bold rounded-xl flex items-center justify-center gap-2 transition-all backdrop-blur-sm shadow-sm transform hover:-translate-y-0.5 active:scale-[0.98]">
+<span class="material-symbols-outlined">history</span>
+                Borrowing History
+            </button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between bg-surface-light/40 dark:bg-surface-dark/40 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">book</span>
+<h3 class="text-2xl font-bold text-text-main dark:text-white">Current Borrowings</h3>
+</div>
+<a class="flex items-center gap-1 text-sm font-bold text-primary hover:text-blue-600 transition-colors bg-white/50 dark:bg-black/20 px-3 py-1.5 rounded-lg" href="#">
+                View All History
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="flex flex-col gap-4">
+<div class="bg-surface-light/95 dark:bg-surface-dark/95 p-5 rounded-2xl border border-white/60 dark:border-gray-700 shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-lg hover:border-primary/20 transition-all hover:bg-white dark:hover:bg-surface-dark">
+<div class="w-20 h-28 rounded-xl bg-gradient-to-br from-blue-400 to-indigo-600 shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform" data-alt="Abstract book cover gradient blue to indigo"></div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div>
+<h4 class="text-xl font-bold text-text-main dark:text-white truncate">Introduction to Algorithms</h4>
+<p class="text-base text-text-secondary dark:text-gray-400 font-medium">Thomas H. Cormen</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-text-secondary dark:text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-mono">ISBN: 978-0262033848</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-bold text-yellow-600 dark:text-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 px-3 py-1.5 rounded-lg border border-yellow-200 dark:border-yellow-800">
+<span class="material-symbols-outlined text-lg">warning</span>
+                            Due Tomorrow
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined text-lg">fingerprint</span>
+                             ID: #839201
+                        </div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<button class="w-full md:w-auto px-6 py-2.5 bg-primary text-white text-sm font-bold rounded-xl hover:bg-blue-600 transition-colors shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">autorenew</span>
+                        Renew Book
+                    </button>
+<button class="w-full md:w-auto px-6 py-2.5 bg-background-light dark:bg-background-dark text-text-main dark:text-white text-sm font-bold rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm">
+                        View Details
+                    </button>
+</div>
+</div>
+<div class="bg-surface-light/95 dark:bg-surface-dark/95 p-5 rounded-2xl border border-white/60 dark:border-gray-700 shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-lg hover:border-emerald-500/20 transition-all hover:bg-white dark:hover:bg-surface-dark">
+<div class="w-20 h-28 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform" data-alt="Abstract book cover gradient emerald to teal"></div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div>
+<h4 class="text-xl font-bold text-text-main dark:text-white truncate">Design of Everyday Things</h4>
+<p class="text-base text-text-secondary dark:text-gray-400 font-medium">Don Norman</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-text-secondary dark:text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-mono">ISBN: 978-0465050659</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-bold text-text-secondary dark:text-gray-400 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+                            Due Oct 24, 2023
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined text-lg">fingerprint</span>
+                             ID: #992102
+                        </div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<button class="w-full md:w-auto px-6 py-2.5 bg-background-light dark:bg-background-dark text-text-main dark:text-white text-sm font-bold rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm">
+                        View Details
+                    </button>
+</div>
+</div>
+<div class="bg-surface-light/95 dark:bg-surface-dark/95 p-5 rounded-2xl border border-white/60 dark:border-gray-700 shadow-sm flex flex-col md:flex-row gap-6 items-start md:items-center hover:shadow-lg hover:border-orange-500/20 transition-all hover:bg-white dark:hover:bg-surface-dark">
+<div class="w-20 h-28 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 shadow-lg flex-shrink-0 group-hover:scale-105 transition-transform" data-alt="Abstract book cover gradient orange to red"></div>
+<div class="flex-1 min-w-0 flex flex-col gap-1">
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div>
+<h4 class="text-xl font-bold text-text-main dark:text-white truncate">Clean Code</h4>
+<p class="text-base text-text-secondary dark:text-gray-400 font-medium">Robert C. Martin</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-text-secondary dark:text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded font-mono">ISBN: 978-0132350884</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-sm font-bold text-text-secondary dark:text-gray-400 bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 px-3 py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+                            Due Nov 01, 2023
+                        </div>
+<div class="flex items-center gap-1.5 text-sm font-medium text-text-secondary dark:text-gray-400">
+<span class="material-symbols-outlined text-lg">fingerprint</span>
+                             ID: #110293
+                        </div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<button class="w-full md:w-auto px-6 py-2.5 bg-background-light dark:bg-background-dark text-text-main dark:text-white text-sm font-bold rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm">
+                        View Details
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6 pb-10">
+<div class="flex items-center gap-3 bg-surface-light/40 dark:bg-surface-dark/40 p-4 rounded-xl backdrop-blur-sm border border-white/20">
+<span class="material-symbols-outlined text-primary">history_toggle_off</span>
+<h3 class="text-2xl font-bold text-text-main dark:text-white">Recently Viewed Books</h3>
+</div>
+<div class="relative group">
+<div class="flex overflow-x-auto gap-6 pb-6 scrollbar-hide snap-x">
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">Pragmatic Programmer</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">David Thomas</p>
+</div>
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">Refactoring</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">Martin Fowler</p>
+</div>
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-red-500 to-orange-400 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">You Don't Know JS</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">Kyle Simpson</p>
+</div>
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-slate-600 to-slate-800 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">Structure &amp; Interpretation</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">Harold Abelson</p>
+</div>
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-emerald-500 to-lime-500 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">Effective Java</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">Joshua Bloch</p>
+</div>
+<div class="flex-none w-48 snap-start cursor-pointer group/book">
+<div class="w-full aspect-[2/3] rounded-xl bg-gradient-to-br from-pink-400 to-rose-500 shadow-lg mb-3 relative overflow-hidden">
+<div class="absolute inset-0 bg-black/0 group-hover/book:bg-black/10 transition-colors"></div>
+</div>
+<h4 class="font-bold text-text-main dark:text-white text-sm truncate">Head First Design Patterns</h4>
+<p class="text-xs text-text-secondary dark:text-gray-400">Eric Freeman</p>
+</div>
+</div>
+<div class="absolute top-0 right-0 bottom-6 w-24 bg-gradient-to-l from-background-light dark:from-background-dark to-transparent pointer-events-none"></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
