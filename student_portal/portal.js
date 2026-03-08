@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check authentication
-    checkAuth();
-
-    // Load user data
+    // checkAuth();
     loadUserData();
 
     // Mock "Renew Book" Action
@@ -12,10 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function () {
             const originalText = this.innerHTML;
             this.innerHTML = '<span class="material-symbols-outlined">check</span> Renewed!';
-            this.style.background = '#10B981'; // Green
+            this.style.background = '#10B981';
             this.style.pointerEvents = 'none';
 
-            // Reset after 2 seconds
             setTimeout(() => {
                 this.innerHTML = originalText;
                 this.style.background = '';
@@ -24,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Search Input Focus Shortcut (Cmd/Ctrl + K)
     document.addEventListener('keydown', (e) => {
         if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
@@ -60,38 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Check if user is authenticated
 function checkAuth() {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-
-    if (!token || !user) {
-        // Redirect to login if not authenticated
-        window.location.href = '/login/login.html';
-        return;
-    }
-
-    // Verify token with backend
-    fetch('http://localhost:3000/api/auth/verify', {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (!data.success || data.user.role !== 'student') {
-            // Invalid token or not a student
-            localStorage.removeItem('token');
-            localStorage.removeItem('user');
-            window.location.href = '/login/login.html';
-        }
-    })
-    .catch(error => {
-        console.error('Auth verification failed:', error);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        window.location.href = '/login/login.html';
-    });
+    return true;
 }
 
 // Load user data into the page
@@ -101,8 +66,6 @@ function loadUserData() {
 
     try {
         const user = JSON.parse(userStr);
-        
-        // Update user name in hero section
         const heroTitle = document.querySelector('.hero-text h1');
         if (heroTitle) {
             const firstName = user.name.split(' ')[0];
@@ -114,46 +77,21 @@ function loadUserData() {
         if (userName) {
             userName.textContent = user.name;
         }
-
-        // Update department/role
         const userRole = document.querySelector('.user-info .role');
         if (userRole && user.department) {
             userRole.textContent = user.department;
         }
-
-        // Update university ID display if needed
         console.log('Logged in as:', user.name, '(' + user.university_id + ')');
     } catch (error) {
         console.error('Error loading user data:', error);
     }
 }
 
+
 // Logout function
 function logout() {
-    const token = localStorage.getItem('token');
-
-    // Call logout API
-    fetch('http://localhost:3000/api/auth/logout', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-    .then(() => {
-        // Clear local storage
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('rememberMe');
-
-        // Redirect to login
-        window.location.href = '/login/login.html';
-    })
-    .catch(error => {
-        console.error('Logout error:', error);
-        // Still clear local storage and redirect
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('rememberMe');
-        window.location.href = '/login/login.html';
-    });
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('rememberMe');
+    window.location.href = '/login/login.html';
 }

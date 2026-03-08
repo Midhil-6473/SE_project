@@ -46,7 +46,7 @@
                     <span class="role">Computer Science</span>
                 </div>
                 <div class="avatar">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Alex Morgan">
+                    <img>
                 </div>
             </div>
             <button class="logout-btn" title="Logout">
@@ -65,7 +65,7 @@
                     You have 2 items due soon. Check your library updates.
                 </div>
             </div>
-            <div class="semester-badge">Fall Semester 2023</div>
+            <div class="semester-badge">Fall Semester 2026</div>
         </section>
 
         <!-- Stats Grid -->
@@ -80,7 +80,7 @@
                 </div>
                 <div class="card-content">
                     <span class="label">TOTAL BOOKS BORROWED</span>
-                    <span class="value">3</span>
+                    <span class="value" id="totalBorrowed">2</span>
                 </div>
             </div>
 
@@ -132,44 +132,59 @@
                         class="material-symbols-outlined">arrow_forward</span></a>
             </div>
 
-            <!-- Book Item -->
-            <div class="book-card">
-                <div class="book-cover blue-cover"></div>
-                <div class="book-details">
-                    <div class="info-main">
-                        <h4>Introduction to Algorithms</h4>
-                        <span class="author">Thomas H. Cormen</span>
-
-                        <div class="meta-tags">
-                            <span class="tag warning"><span class="material-symbols-outlined">warning</span> Due
-                                Tomorrow</span>
-                            <span class="tag gray"><span class="material-symbols-outlined">fingerprint</span> ID:
-                                #839201</span>
+            <!-- Borrowings Container -->
+            <div id="borrowingsContainer">
+                <div class="book-card">
+                    <div class="book-cover blue-cover"></div>
+                    <div class="book-details">
+                        <div class="info-main">
+                            <h4>Design Patterns: Elements of Reusable Object-Oriented Software</h4>
+                            <span class="author">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</span>
+                            <div class="meta-tags">
+                                <span class="tag warning" style="background:#fffbeb;color:#f59e0b;">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:14px;color:#f59e0b;">warning</span> Due in 3 days
+                                </span>
+                                <span class="tag gray"><span class="material-symbols-outlined">fingerprint</span> ID:
+                                    #B7492</span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="info-side">
-                        <span class="isbn">ISBN: 978-0262033848</span>
-                        <div class="book-actions">
-                            <button class="btn-primary">
-                                <span class="material-symbols-outlined">autorenew</span> Renew Book
-                            </button>
-                            <button class="btn-secondary">View Details</button>
+                        <div class="info-side">
+                            <span class="isbn">ISBN: 978-0201633610</span>
+                            <div class="book-actions">
+                                <button class="btn-primary renew-action-btn">
+                                    <span class="material-symbols-outlined">autorenew</span> Renew Book
+                                </button>
+                                <button class="btn-secondary">View Details</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Book Item 2 (Preview) -->
-            <div class="book-card">
-                <div class="book-cover green-cover"></div>
-                <div class="book-details">
-                    <div class="info-main">
-                        <h4>Design of Everyday Things</h4>
-                        <span class="author">Donald Norman</span>
-                    </div>
-                    <div class="info-side">
-                        <span class="isbn">ISBN: 978-0465050659</span>
+                <div class="book-card">
+                    <div class="book-cover green-cover"></div>
+                    <div class="book-details">
+                        <div class="info-main">
+                            <h4>Clean Code: A Handbook of Agile Software Craftsmanship</h4>
+                            <span class="author">Robert C. Martin</span>
+                            <div class="meta-tags">
+                                <span class="tag" style="background:#f0fdf4;color:#10b981;">
+                                    <span class="material-symbols-outlined"
+                                        style="font-size:14px;color:#10b981;">check_circle</span> Due 10/25/2023
+                                </span>
+                                <span class="tag gray"><span class="material-symbols-outlined">fingerprint</span> ID:
+                                    #B8374</span>
+                            </div>
+                        </div>
+                        <div class="info-side">
+                            <span class="isbn">ISBN: 978-0132350884</span>
+                            <div class="book-actions">
+                                <button class="btn-primary renew-action-btn">
+                                    <span class="material-symbols-outlined">autorenew</span> Renew Book
+                                </button>
+                                <button class="btn-secondary">View Details</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
