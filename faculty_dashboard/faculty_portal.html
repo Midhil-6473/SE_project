@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Faculty Dashboard - Library LMS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="faculty_portal.js"></script>
+    <link rel="stylesheet" href="faculty_portal.css" />
+</head>
+
+<body>
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-inner">
+                <div class="sidebar-top">
+                    <div class="logo-area">
+                        <div class="logo-icon">
+                            <span class="material-symbols-outlined">local_library</span>
+                        </div>
+                        <div class="logo-text">
+                            <h1>Vit-Ap Library</h1>
+                            <p>Faculty Portal</p>
+                        </div>
+                    </div>
+                    <nav class="nav-menu">
+                        <a class="nav-item active" href="#">
+                            <span class="material-symbols-outlined">dashboard</span>
+                            <p>Dashboard</p>
+                        </a>
+                        <a class="nav-item" href="#">
+                            <span class="material-symbols-outlined">search</span>
+                            <p>Search Books</p>
+                        </a>
+                        <a class="nav-item" href="#">
+                            <span class="material-symbols-outlined">menu_book</span>
+                            <p>My Borrowings</p>
+                        </a>
+                        <a class="nav-item" href="#">
+                            <span class="material-symbols-outlined">history</span>
+                            <p>History</p>
+                        </a>
+                        <a class="nav-item" href="#">
+                            <span class="material-symbols-outlined">account_circle</span>
+                            <p>Profile</p>
+                        </a>
+                    </nav>
+                </div>
+                <div class="sidebar-bottom">
+                    <a class="nav-item logout" href="#">
+                        <span class="material-symbols-outlined">logout</span>
+                        <p>Log Out</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="background-effects">
+                <img alt="Library Background" class="bg-img" src="../Library background.png" />
+                <div class="bg-overlay-gradient"></div>
+                <div class="bg-overlay-solid"></div>
+            </div>
+
+            <header class="top-header">
+                <div class="mobile-menu">
+                    <button class="menu-btn"><span class="material-symbols-outlined">menu</span></button>
+                    <span class="mobile-title">UniLibrary</span>
+                </div>
+
+                <div class="search-container">
+                    <label class="search-box">
+                        <span class="material-symbols-outlined search-icon">search</span>
+                        <input placeholder="Search by title, author, or ISBN..." type="text" />
+                    </label>
+                </div>
+
+                <div class="user-actions">
+                    <button class="notification-btn">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="notification-badge"></span>
+                    </button>
+                    <div class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-body">
+                <div class="welcome-section">
+                    <h2>Welcome back, Alex</h2>
+                    <p class="welcome-alert">You have 2 items due soon. Check your notifications for library updates.
+                    </p>
+                </div>
+
+                <div class="notification-alerts">
+                    <div class="alert-item alert-info">
+                        <div class="alert-icon">
+                            <span class="material-symbols-outlined">bookmark_added</span>
+                        </div>
+                        <div class="alert-content">
+                            <p class="alert-title">Reservation Ready</p>
+                            <p class="alert-desc">"The Pragmatic Programmer" is available for pickup at the front desk.
+                            </p>
+                        </div>
+                        <span class="alert-time">2 hours ago</span>
+                        <button class="alert-dismiss"><span class="material-symbols-outlined">close</span></button>
+                    </div>
+                    <div class="alert-item alert-warning">
+                        <div class="alert-icon">
+                            <span class="material-symbols-outlined">info</span>
+                        </div>
+                        <div class="alert-content">
+                            <p class="alert-title">Library Notice</p>
+                            <p class="alert-desc">The main library will be closing at 4 PM this Friday for maintenance.
+                            </p>
+                        </div>
+                        <span class="alert-time">Yesterday</span>
+                        <button class="alert-dismiss"><span class="material-symbols-outlined">close</span></button>
+                    </div>
+                    <div class="alert-item alert-neutral">
+                        <div class="alert-icon">
+                            <span class="material-symbols-outlined">update</span>
+                        </div>
+                        <div class="alert-content">
+                            <p class="alert-title">System Update</p>
+                            <p class="alert-desc">Catalog search service will be down for 15 mins tonight.</p>
+                        </div>
+                        <span class="alert-time">2 days ago</span>
+                        <button class="alert-dismiss"><span class="material-symbols-outlined">close</span></button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card active-stat">
+                        <div class="stat-card-header">
+                            <div class="icon-wrap blue"><span class="material-symbols-outlined">library_books</span>
+                            </div>
+                            <span class="status-badge green">Active</span>
+                        </div>
+                        <div class="stat-card-body">
+                            <p class="stat-label">Total Books Borrowed</p>
+                            <p class="stat-value">3</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="icon-wrap yellow"><span class="material-symbols-outlined">edit_calendar</span>
+                            </div>
+                            <span class="status-badge yellow">Attention Needed</span>
+                        </div>
+                        <div class="stat-card-body">
+                            <p class="stat-label">Upcoming Due Dates</p>
+                            <p class="stat-value">1 <span class="stat-sub">Tomorrow</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="borrowings-section">
+                    <div class="section-header">
+                        <h3>Current Borrowings</h3>
+                        <a href="#" class="view-all-link">View All History</a>
+                    </div>
+
+                    <div class="borrowings-list">
+                        <div class="book-card">
+                            <div class="book-cover gradient-blue"></div>
+                            <div class="book-info">
+                                <h4 class="book-title">Introduction to Algorithms</h4>
+                                <p class="book-author">Thomas H. Cormen</p>
+                                <div class="book-meta">
+                                    <div class="meta-tag warning">
+                                        <span class="material-symbols-outlined">warning</span> Due Tomorrow
+                                    </div>
+                                    <span class="book-id">ID: #839201</span>
+                                </div>
+                            </div>
+                            <button class="renew-btn">Renew Book</button>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover gradient-emerald"></div>
+                            <div class="book-info">
+                                <h4 class="book-title">Design of Everyday Things</h4>
+                                <p class="book-author">Don Norman</p>
+                                <div class="book-meta">
+                                    <div class="meta-tag normal">
+                                        <span class="material-symbols-outlined">calendar_today</span> Due Oct 24
+                                    </div>
+                                    <span class="book-id">ID: #992102</span>
+                                </div>
+                            </div>
+                            <button class="renew-btn">Renew Book</button>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover gradient-orange"></div>
+                            <div class="book-info">
+                                <h4 class="book-title">Clean Code</h4>
+                                <p class="book-author">Robert C. Martin</p>
+                                <div class="book-meta">
+                                    <div class="meta-tag normal">
+                                        <span class="material-symbols-outlined">calendar_today</span> Due Nov 01
+                                    </div>
+                                    <span class="book-id">ID: #110293</span>
+                                </div>
+                            </div>
+                            <button class="renew-btn">Renew Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
