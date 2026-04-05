@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Library - Book Search</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- Custom Semantic CSS -->
+    <link rel="stylesheet" href="book_search.css">
+    <script src="book_search.js" defer></script>
+</head>
+
+<body class="app-body">
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="material-symbols-outlined logo-icon">local_library</span>
+                <span class="logo-text">VIT-AP Library</span>
+            </div>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link active">Browse</a>
+                <a href="#" class="nav-link">My Borrowings</a>
+                <a href="#" class="nav-link">Profile</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="notification-badge"></span>
+                </button>
+                <button class="user-avatar">
+                    <svg class="avatar-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg-text">Cleam</div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Knowledge</h1>
+            <p class="hero-subtitle">Search over 50,000 resources in our academic collection.</p>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <div class="search-icon-wrapper">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <input type="text" placeholder="Search by Title, Author, or ISBN..." class="search-input">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills">
+                <span>Filter by:</span>
+                <button class="filter-pill">Title</button>
+                <button class="filter-pill">Author</button>
+                <button class="filter-pill">ISBN</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-container">
+
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <div class="sidebar-box">
+                <div class="sidebar-header">
+                    <h2><span class="material-symbols-outlined">tune</span> Filters</h2>
+                    <button class="reset-btn">Reset all</button>
+                </div>
+
+                <hr class="sidebar-divider">
+
+                <!-- Availability -->
+                <div class="filter-group">
+                    <h3>Availability</h3>
+                    <div class="checkbox-list">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            <span>Available Now</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Include Digital Copies</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Department -->
+                <div class="filter-group">
+                    <h3>Department / Category</h3>
+                    <div class="checkbox-list">
+                        <label class="checkbox-label"><input type="checkbox"> <span>Computer Science</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>Engineering</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>History</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>Psychology</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>Art & Design</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>Economics</span></label>
+                        <label class="checkbox-label"><input type="checkbox"> <span>Mathematics</span></label>
+                    </div>
+                </div>
+
+                <!-- Publication Year -->
+                <div class="filter-group">
+                    <h3>Publication Year</h3>
+                    <div class="year-inputs">
+                        <input type="number" placeholder="1900" class="year-input">
+                        <span class="year-divider">-</span>
+                        <input type="number" placeholder="2024" class="year-input">
+                    </div>
+                </div>
+
+                <button class="apply-filters-btn">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- Book Results Area -->
+        <main class="content-area">
+            <div>
+                <div class="results-bar">
+                    <div class="results-count">
+                        <div class="results-dot"></div>
+                        <p class="results-text">124 <span class="normal">results found</span></p>
+                    </div>
+                    <div class="sort-container">
+                        <span class="sort-label">Sort by:</span>
+                        <select class="sort-select">
+                            <option>Relevance</option>
+                            <option>Newest Arrivals</option>
+                            <option>Title (A-Z)</option>
+                            <option>Publication Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Book Grid -->
+                <div class="book-grid"></div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="pagination-container"></div>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
